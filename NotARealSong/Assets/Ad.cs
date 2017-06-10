@@ -17,13 +17,17 @@ public class Ad : MonoBehaviour {
 
     private void HandleAdResult(ShowResult result)
     {
-        if(result == ShowResult.Finished)
+        switch(result)
         {
-            reward();
-        }
-        else
-        {
-            failed();
+            case ShowResult.Finished:
+                reward();
+                break;
+            case ShowResult.Skipped:
+                skip();
+                break;
+            case ShowResult.Failed:
+                failed();
+                break;
         }
     }
 
